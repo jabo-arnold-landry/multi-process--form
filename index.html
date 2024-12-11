@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>multi-form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="multi-step.js" defer></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+      body {
+        font-family: "Ubuntu", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-blue-50">
+    <div id="container" class="relative">
+      <div class="progress-bar" class="relative -z-10">
+        <div id="image" class="">
+          <img
+            src="images/bg-sidebar-mobile.svg"
+            alt="nothing here"
+            class="h-auto w-full object-fill max-[320px]:w-full lg:hidden"
+          />
+          <img
+            src="images/bg-sidebar-desktop.svg"
+            alt="nothing here"
+            class="hidden lg:block mx-44 h-[470px] mt-10"
+          />
+          <div
+            class="flex absolute top-8 left-28 gap-6 text-white max-[320px]:left-20 min-[600px]:left-44 min-[600px]:gap-16 min-[600px]:top-16 sm:left-[33%] sm:top-32 sm:gap-16 lg:flex-col lg:top-16 lg:left-56 lg:gap-2"
+          >
+            <div
+              class="text-base border-2 px-1 rounded-full size-8 text-center cursor-pointer sm:size-10 sm:text-lg sm-:py-1 lg:size-6 lg:text-sm"
+            >
+              1
+            </div>
+            <div class="hidden lg:block relative -top-10 ml-10 leading-5">
+              <p class="text-gray-300">step 1</p>
+              <span class="text-base text-white font-semibold capitalize"
+                >personal info</span
+              >
+            </div>
+
+            <div
+              class="text-base border-2 px-1 rounded-full size-8 text-center cursor-pointer sm:size-10 sm:text-lg sm-:py-1 lg:size-6 lg:text-sm"
+            >
+              2
+            </div>
+            <div class="hidden lg:block relative -top-10 ml-10 leading-5">
+              <p class="text-gray-300">step 2</p>
+              <span class="text-base text-white font-semibold capitalize"
+                >select plan</span
+              >
+            </div>
+            <div
+              class="text-base border-2 px-1 rounded-full size-8 text-center cursor-pointer sm:size-10 sm:text-lg sm-:py-1 lg:size-6 lg:text-sm"
+            >
+              3
+            </div>
+            <div class="hidden lg:block relative -top-10 ml-10 leading-5">
+              <p class="text-gray-300">step 3</p>
+              <span class="text-base text-white font-semibold capitalize"
+                >add-ons</span
+              >
+            </div>
+            <div
+              class="text-base border-2 px-1 rounded-full size-8 text-center cursor-pointer sm:size-10 sm:text-lg sm-:py-1 lg:size-6 lg:text-sm"
+            >
+              4
+            </div>
+            <div class="hidden lg:block relative -top-10 ml-10 leading-5">
+              <p class="text-gray-300">step 4</p>
+              <span class="text-base text-white font-semibold capitalize"
+                >summary</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="absolute -mt-9 max-[320px]:-mt-14 max-[600px]:-mt-24 sm:-mt-16 lg:-mt-[29rem] lg:pb-10"
+        id="steps"
+      >
+        <!--form-->
+        <div id="form" data-step class="hidden">
+          <form
+            action=""
+            class="bg-white px-10 py-10 mx-5 rounded-md shadow-xl max-[320px]:mx-2 max-[600px]:mx-20 sm:mx-32 lg:ml-[25.90rem] lg:shadow-none"
+          >
+            <h1
+              class="text-gray-900 text-xl first-letter:capitalize font-extrabold sm:text-2xl leading-2"
+            >
+              personal info
+            </h1>
+            <p
+              class="text-base text-gray-400 first-letter:capitalize sm:text-xl"
+            >
+              please provide name,email,address and phone number
+            </p>
+            <div id="inputs" class="mt-2 flex flex-col">
+              <div id="inputs-group" class="flex flex-col">
+                <label for="name" class="capitalize font-light sm:text-xl mb-2"
+                  >name</label
+                >
+                <input
+                  type="text"
+                  name=""
+                  id="name"
+                  class="border-2 border-gray-200 rounded-sm p-1 mb-3 outline-none sm:placeholder:text-xl sm:p-3"
+                  placeholder="e.g Jabo Landry"
+                />
+              </div>
+              <div id="inputs-group" class="flex flex-col">
+                <label for="email" class="capitalize font-light sm:text-xl mb-2"
+                  >email</label
+                >
+                <input
+                  type="email"
+                  name=""
+                  id="email"
+                  class="border-2 border-gray-200 rounded-sm p-1 mb-3 outline-none sm:placeholder:text-xl sm:p-3"
+                  placeholder="e.g jabolandry@lorem.com"
+                />
+              </div>
+              <div id="inputs-group" class="flex flex-col">
+                <label
+                  for="phone number"
+                  class="capitalize font-light sm:text-xl mb-2"
+                  >phone number</label
+                >
+                <input
+                  type="text"
+                  name=""
+                  id="phone number"
+                  class="border-2 border-gray-200 rounded-sm p-1 mb-3 outline-none sm:placeholder:text-xl sm:p-3"
+                  placeholder="e.g +250 798 600 102"
+                />
+              </div>
+            </div>
+          </form>
+          <button
+            class="next bg-blue-950 text-white m-10 relative left-56 px-3 py-3 max-[320px]:left-48 max-[320px]:m-4 min-[600px]:left-96 sm:left-[31rem] lg:-top-20 lg:left-[73%] lg:px-1 lg:py-1"
+          >
+            next step
+          </button>
+        </div>
+        <!-- select adds-->
+        <div id="second-step" data-step class="hidden">
+          <div
+            class="bg-white mx-4 my-5 p-10 rounded-md shadow-lg max-[320px]:-my-2 max-[600px]:mx-12 sm:"
+          >
+            <div id="select-adds">
+              <h1
+                class="text-gray-900 text-xl first-letter:capitalize font-extrabold sm:text-2xl leading-2"
+              >
+                select your plan
+              </h1>
+              <p
+                class="text-base text-gray-400 first-letter:capitalize sm:text-xl"
+              >
+                you have the option of monthly or yearly billing
+              </p>
+            </div>
+            <div id="cards">
+              <div id="card">
+                <img src="images/icon-arcade.svg" alt="1-icon" />
+                <h2>arcade</h2>
+                <p>$9/mo</p>
+              </div>
+
+              <div id="card">
+                <img src="images/icon-advanced.svg" alt="2-icon" />
+                <h2>advanced</h2>
+                <p>$12/mo</p>
+              </div>
+
+              <div id="card">
+                <img src="images/icon-pro.svg" alt="3-icon" />
+                <h2>pro</h2>
+                <p>$15/mo</p>
+              </div>
+            </div>
+            <div class="bg-blue-400">
+              <p>monthly</p>
+              <div></div>
+              <p>yearly</p>
+            </div>
+          </div>
+          <div id="buttons">
+            <button type="button" class="previous">go back</button>
+            <button type="button" class="next">next step</button>
+          </div>
+        </div>
+
+        <div id="third-part" data-step class="hidden">
+          <div id="title">
+            <h1>pick-add-ons</h1>
+            <p>add-ons help enhance your gaming experience</p>
+          </div>
+          <div id="checkbox">
+            <div id="groups">
+              <input type="checkbox" name="" id="" />
+              <span>online service</span>
+              <p>access to multi player games</p>
+              <span>+$1/m0</span>
+            </div>
+
+            <div id="groups">
+              <input type="checkbox" name="" id="" />
+              <span>online service</span>
+              <p>access to multi player games</p>
+              <span>+$1/m0</span>
+            </div>
+
+            <div id="groups">
+              <input type="checkbox" name="" id="" />
+              <span>larger storage</span>
+              <p>extra ttb of cloud save</p>
+              <span>+$2/m0</span>
+            </div>
+
+            <div id="groups">
+              <input type="checkbox" name="" id="" />
+              <span>customizable profile</span>
+              <p>custom theme on your profile</p>
+              <span>+$2/m0</span>
+            </div>
+          </div>
+          <div id="buttons">
+            <button type="button" class="previous">go back</button>
+            <button type="button" class="next">next step</button>
+          </div>
+        </div>
+
+        <div id="fourth-part" data-step class="hidden">
+          <div id="title">
+            <h1>finishing up</h1>
+            <p>double check everythig looks ok before confirming</p>
+          </div>
+          <div id="holder">
+            <div id="one"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
