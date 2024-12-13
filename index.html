@@ -13,8 +13,11 @@
       }
     </style>
   </head>
-  <body class="bg-blue-50">
-    <div id="container" class="relative bg-white">
+  <body class="bg-blue-100">
+    <div
+      id="container"
+      class="relative lg:bg-white lg:shadow-xl lg:rounded-lg lg:py-5 lg:mt-10 lg:mr-32 lg:w-full lg:mx-20"
+    >
       <div class="progress-bar" class="relative -z-10">
         <div id="image" class="">
           <img
@@ -28,14 +31,14 @@
             class="hidden lg:block mx-44 h-[470px] mt-10"
           />
           <div
-            class="flex absolute top-8 left-28 gap-6 text-white max-[320px]:left-20 min-[600px]:left-44 min-[600px]:gap-16 min-[600px]:top-16 sm:left-[33%] sm:top-32 sm:gap-16 lg:flex-col lg:top-16 lg:left-56 lg:gap-2"
+            class="flex absolute top-8 left-28 gap-6 text-white max-[320px]:left-20 min-[600px]:left-44 min-[600px]:gap-16 min-[600px]:top-16 sm:left-[33%] sm:top-32 sm:gap-16 lg:flex-col lg:top-20 lg:left-56 lg:gap-2"
           >
             <div
               class="text-base border-2 px-1 rounded-full size-8 text-center cursor-pointer sm:size-10 sm:text-lg sm-:py-1 lg:size-6 lg:text-sm"
             >
               1
             </div>
-            <div class="hidden lg:block relative -top-10 ml-10 leading-5">
+            <div class="hidden lg:block relative -top-8 ml-10 leading-5">
               <p class="text-gray-300">step 1</p>
               <span class="text-base text-white font-semibold capitalize"
                 >personal info</span
@@ -47,7 +50,7 @@
             >
               2
             </div>
-            <div class="hidden lg:block relative -top-10 ml-10 leading-5">
+            <div class="hidden lg:block relative -top-8 ml-10 leading-5">
               <p class="text-gray-300">step 2</p>
               <span class="text-base text-white font-semibold capitalize"
                 >select plan</span
@@ -58,7 +61,7 @@
             >
               3
             </div>
-            <div class="hidden lg:block relative -top-10 ml-10 leading-5">
+            <div class="hidden lg:block relative -top-8 ml-10 leading-5">
               <p class="text-gray-300">step 3</p>
               <span class="text-base text-white font-semibold capitalize"
                 >add-ons</span
@@ -69,7 +72,7 @@
             >
               4
             </div>
-            <div class="hidden lg:block relative -top-10 ml-10 leading-5">
+            <div class="hidden lg:block relative -top-8 ml-10 leading-5">
               <p class="text-gray-300">step 4</p>
               <span class="text-base text-white font-semibold capitalize"
                 >summary</span
@@ -148,7 +151,7 @@
         <!-- select adds-->
         <div id="second-step" data-step class="hidden">
           <div
-            class="bg-white mx-4 my-5 p-10 rounded-md shadow-lg max-[320px]:-my-2 max-[600px]:mx-12 sm:mx-40 sm:-my-10 md:mx-48 md:-my-20 lg:-my-2 lg:ml-[58%] min-w-[72%] lg:bg-none lg:shadow-none"
+            class="bg-white mx-4 my-5 p-10 rounded-md shadow-lg max-[320px]:-my-2 max-[600px]:mx-7 sm:mx-40 sm:-my-10 md:mx-48 md:-my-20 lg:-my-2 lg:ml-[58%] min-w-[72%] lg:bg-transparent lg:shadow-none"
           >
             <div id="select-adds">
               <h1
@@ -168,7 +171,7 @@
                 class="flex gap-3 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-wrap lg:py-2 lg:px-2"
               >
                 <img src="images/icon-arcade.svg" alt="1-icon" />
-                <div class="mt-3">
+                <div class="mt-3" id="description">
                   <h2 class="capitalize text-blue-900 font-semibold text-base">
                     arcade
                   </h2>
@@ -185,7 +188,7 @@
                   alt="2-icon"
                   class="size-9"
                 />
-                <div class="mt-3">
+                <div class="mt-3" id="description">
                   <h2 class="capitalize text-blue-900 font-semibold text-base">
                     advanced
                   </h2>
@@ -198,7 +201,7 @@
                 class="flex gap-3 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-wrap lg:py-2 lg:px-2"
               >
                 <img src="images/icon-pro.svg" alt="3-icon" />
-                <div class="mt-3">
+                <div class="mt-3" id="description">
                   <h2 class="capitalize text-blue-900 font-semibold text-base">
                     pro
                   </h2>
@@ -206,17 +209,40 @@
                 </div>
               </div>
             </div>
-            <div class="bg-blue-100">
-              <p>monthly</p>
-              <div class="bg-blue-950">
-                <span class="bg-white size-10/12 rounded-full"></span>
+            <div class="bg-blue-50">
+              <div
+                class="flex gap-2 p-4 sm:justify-evenly md:justify-center md:gap-10 lg:"
+              >
+                <p class="capitalize font-bold text-base text-blue-950">
+                  monthly
+                </p>
+                <div
+                  class="switch bg-blue-950 border-2 px-px py-px w-12 rounded-full cursor-pointer"
+                >
+                  <div
+                    class="h-5 w-5 bg-white rounded-full transition-all duration-300 ease-in delay-75"
+                    id="toggler"
+                  ></div>
+                </div>
+                <p class="capitalize font-bold text-base text-gray-400">
+                  yearly
+                </p>
               </div>
-              <p>yearly</p>
             </div>
           </div>
-          <div id="buttons">
-            <button type="button" class="previous">go back</button>
-            <button type="button" class="next">next step</button>
+          <div
+            id="buttons"
+            class="flex justify-evenly bg-white p-5 gap-36 cursor-pointer max-[600px]:w-full sm:mt-14 sm:gap-40 sm:bg-transparent sm:justify-around sm:ml-32 md:mt-24 md:gap-32 lg:justify-end lg:-mt-10"
+          >
+            <button type="button" class="previous capitalize text-gray-400">
+              go back
+            </button>
+            <button
+              type="button"
+              class="next capitalize bg-blue-950 text-white p-2 rounded-md"
+            >
+              next step
+            </button>
           </div>
         </div>
 
@@ -254,9 +280,19 @@
               <span>+$2/m0</span>
             </div>
           </div>
-          <div id="buttons">
-            <button type="button" class="previous">go back</button>
-            <button type="button" class="next">next step</button>
+          <div
+            id="buttons"
+            class="flex justify-evenly bg-white p-5 gap-36 cursor-pointer max-[600px]:w-full sm:mt-14 sm:gap-40 sm:bg-transparent sm:justify-around sm:ml-32 md:mt-24 md:gap-32 lg:justify-end lg:-mt-10"
+          >
+            <button type="button" class="previous capitalize text-gray-400">
+              go back
+            </button>
+            <button
+              type="button"
+              class="next capitalize bg-blue-950 text-white p-2 rounded-md"
+            >
+              next step
+            </button>
           </div>
         </div>
 

@@ -23,3 +23,38 @@ function addOrRemoveSteps() {
     step.classList.toggle("hidden", index !== stepNumber);
   });
 }
+const descriptions = document.querySelectorAll("#description");
+
+const monthly = [
+  {
+    name: "arcade",
+    price: 9,
+  },
+  {
+    name: "advanced",
+    price: 12,
+  },
+  {
+    name: "pro",
+    price: 15,
+  },
+];
+
+const switctBtn = document.querySelector(".bg-blue-50");
+
+switctBtn.addEventListener("click", (e) => {
+  if (e.target.classList.contains("switch")) {
+    const toggler = switctBtn.querySelector("#toggler");
+    toggler.classList.toggle("mx-[1.4rem]");
+    descriptions.forEach((description) => {
+      const exisitingPElement = description.querySelector("#umwaka");
+      if (exisitingPElement) {
+        exisitingPElement.remove();
+      } else {
+        description.innerHTML += `<p class="text-base text-blue-950 h-4" id="umwaka">2 months free</p>`;
+      }
+    });
+  } else {
+    return;
+  }
+});
