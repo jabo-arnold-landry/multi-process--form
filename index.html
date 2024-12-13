@@ -14,7 +14,7 @@
     </style>
   </head>
   <body class="bg-blue-50">
-    <div id="container" class="relative">
+    <div id="container" class="relative bg-white">
       <div class="progress-bar" class="relative -z-10">
         <div id="image" class="">
           <img
@@ -148,7 +148,7 @@
         <!-- select adds-->
         <div id="second-step" data-step class="hidden">
           <div
-            class="bg-white mx-4 my-5 p-10 rounded-md shadow-lg max-[320px]:-my-2 max-[600px]:mx-12 sm:"
+            class="bg-white mx-4 my-5 p-10 rounded-md shadow-lg max-[320px]:-my-2 max-[600px]:mx-12 sm:mx-40 sm:-my-10 md:mx-48 md:-my-20 lg:-my-2 lg:ml-[58%] min-w-[72%] lg:bg-none lg:shadow-none"
           >
             <div id="select-adds">
               <h1
@@ -162,28 +162,55 @@
                 you have the option of monthly or yearly billing
               </p>
             </div>
-            <div id="cards">
-              <div id="card">
+            <div id="cards" class="py-8 flex flex-col lg:flex-row gap-5">
+              <div
+                id="card"
+                class="flex gap-3 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-wrap lg:py-2 lg:px-2"
+              >
                 <img src="images/icon-arcade.svg" alt="1-icon" />
-                <h2>arcade</h2>
-                <p>$9/mo</p>
+                <div class="mt-3">
+                  <h2 class="capitalize text-blue-900 font-semibold text-base">
+                    arcade
+                  </h2>
+                  <p class="text-gray-400">$9/mo</p>
+                </div>
               </div>
 
-              <div id="card">
-                <img src="images/icon-advanced.svg" alt="2-icon" />
-                <h2>advanced</h2>
-                <p>$12/mo</p>
+              <div
+                id="card"
+                class="flex gap-3 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-wrap lg:py-2 lg:px-2"
+              >
+                <img
+                  src="images/icon-advanced.svg"
+                  alt="2-icon"
+                  class="size-9"
+                />
+                <div class="mt-3">
+                  <h2 class="capitalize text-blue-900 font-semibold text-base">
+                    advanced
+                  </h2>
+                  <p class="text-gray-400">$12/mo</p>
+                </div>
               </div>
 
-              <div id="card">
+              <div
+                id="card"
+                class="flex gap-3 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-wrap lg:py-2 lg:px-2"
+              >
                 <img src="images/icon-pro.svg" alt="3-icon" />
-                <h2>pro</h2>
-                <p>$15/mo</p>
+                <div class="mt-3">
+                  <h2 class="capitalize text-blue-900 font-semibold text-base">
+                    pro
+                  </h2>
+                  <p class="text-gray-400">$15/mo</p>
+                </div>
               </div>
             </div>
-            <div class="bg-blue-400">
+            <div class="bg-blue-100">
               <p>monthly</p>
-              <div></div>
+              <div class="bg-blue-950">
+                <span class="bg-white size-10/12 rounded-full"></span>
+              </div>
               <p>yearly</p>
             </div>
           </div>
