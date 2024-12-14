@@ -14,10 +14,7 @@
     </style>
   </head>
   <body class="bg-blue-100">
-    <div
-      id="container"
-      class="relative lg:bg-white lg:shadow-xl lg:rounded-lg lg:py-5 lg:mt-10 lg:mr-32 lg:w-full lg:mx-20"
-    >
+    <div id="container" class="relative">
       <div class="progress-bar" class="relative -z-10">
         <div id="image" class="">
           <img
@@ -168,9 +165,13 @@
             <div id="cards" class="py-8 flex flex-col lg:flex-row gap-5">
               <div
                 id="card"
-                class="flex gap-3 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-wrap lg:py-2 lg:px-2"
+                class="flex gap-3 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-col lg:py-2 lg:px-5"
               >
-                <img src="images/icon-arcade.svg" alt="1-icon" />
+                <img
+                  src="images/icon-arcade.svg"
+                  alt="1-icon"
+                  class="size-10"
+                />
                 <div class="mt-3" id="description">
                   <h2 class="capitalize text-blue-900 font-semibold text-base">
                     arcade
@@ -181,12 +182,12 @@
 
               <div
                 id="card"
-                class="flex gap-3 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-wrap lg:py-2 lg:px-2"
+                class="flex gap-3 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-col lg:py-2 lg:px-5"
               >
                 <img
                   src="images/icon-advanced.svg"
                   alt="2-icon"
-                  class="size-9"
+                  class="size-10"
                 />
                 <div class="mt-3" id="description">
                   <h2 class="capitalize text-blue-900 font-semibold text-base">
@@ -198,9 +199,9 @@
 
               <div
                 id="card"
-                class="flex gap-3 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-wrap lg:py-2 lg:px-2"
+                class="flex gap-3 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-col lg:py-2 lg:px-5"
               >
-                <img src="images/icon-pro.svg" alt="3-icon" />
+                <img src="images/icon-pro.svg" alt="3-icon" class="size-10" />
                 <div class="mt-3" id="description">
                   <h2 class="capitalize text-blue-900 font-semibold text-base">
                     pro
@@ -231,7 +232,7 @@
             </div>
           </div>
           <div
-            id="buttons"
+            id="buttons "
             class="flex justify-evenly bg-white p-5 gap-36 cursor-pointer max-[600px]:w-full sm:mt-14 sm:gap-40 sm:bg-transparent sm:justify-around sm:ml-32 md:mt-24 md:gap-32 lg:justify-end lg:-mt-10"
           >
             <button type="button" class="previous capitalize text-gray-400">
@@ -246,43 +247,72 @@
           </div>
         </div>
 
-        <div id="third-part" data-step class="hidden">
-          <div id="title">
-            <h1>pick-add-ons</h1>
-            <p>add-ons help enhance your gaming experience</p>
-          </div>
-          <div id="checkbox">
-            <div id="groups">
-              <input type="checkbox" name="" id="" />
-              <span>online service</span>
-              <p>access to multi player games</p>
-              <span>+$1/m0</span>
+        <div
+          id="third-part"
+          data-step
+          class="hidden mx-4 min-[600px]:mx-24 min-[600px]:-mt-4 sm:mx-28 sm:-mt-10 md:mx-52 md:-mt-5 lg:mt-5 lg:mx-[26rem]"
+        >
+          <div
+            id="checkbox"
+            class="bg-white px-5 py-5 rounded-md shadow-lg lg:shadow-none"
+          >
+            <div id="title" class="">
+              <h1
+                class="text-blue-950 text-xl first-letter:capitalize font-extrabold sm:text-2xl leading-10"
+              >
+                pick-add-ons
+              </h1>
+              <p
+                class="mb-4 text-base text-gray-400 first-letter:capitalize sm:text-xl"
+              >
+                add-ons help enhance your gaming experience
+              </p>
+            </div>
+            <div
+              id="groups"
+              class="border mb-5 p-3 rounded-md hover:bg-indigo-100 hover:border-indigo-600"
+            >
+              <div class="flex gap-2">
+                <input type="checkbox" name="" id="service" class="" />
+                <label for="service" class="text-blue-900 font-bold text-lg"
+                  >online service</label
+                >
+              </div>
+              <div id="yearly" class="flex gap-4 justify-between mx-px"></div>
             </div>
 
-            <div id="groups">
-              <input type="checkbox" name="" id="" />
-              <span>online service</span>
-              <p>access to multi player games</p>
-              <span>+$1/m0</span>
+            <div
+              id="groups"
+              class="border mb-5 p-3 rounded-md hover:bg-indigo-100 hover:border-indigo-600"
+            >
+              <div class="flex gap-2">
+                <input type="checkbox" name="" id="storage" class="" />
+                <label for="storage" class="text-blue-900 font-bold text-lg"
+                  >larger storage</label
+                >
+              </div>
+              <div id="yearly" class="flex gap-4 justify-between mx-px"></div>
             </div>
 
-            <div id="groups">
-              <input type="checkbox" name="" id="" />
-              <span>larger storage</span>
-              <p>extra ttb of cloud save</p>
-              <span>+$2/m0</span>
-            </div>
-
-            <div id="groups">
-              <input type="checkbox" name="" id="" />
-              <span>customizable profile</span>
-              <p>custom theme on your profile</p>
-              <span>+$2/m0</span>
+            <div
+              id="groups"
+              class="border mb-5 p-3 rounded-md hover:bg-indigo-100 hover:border-indigo-600"
+            >
+              <div class="flex gap-2">
+                <input type="checkbox" name="" id="profile" class="" />
+                <label for="profile" class="text-blue-900 font-bold text-lg"
+                  >customizable profile
+                </label>
+              </div>
+              <div
+                id="yearly"
+                class="flex gap-4 justify-between mx-px last:-mr-2"
+              ></div>
             </div>
           </div>
           <div
             id="buttons"
-            class="flex justify-evenly bg-white p-5 gap-36 cursor-pointer max-[600px]:w-full sm:mt-14 sm:gap-40 sm:bg-transparent sm:justify-around sm:ml-32 md:mt-24 md:gap-32 lg:justify-end lg:-mt-10"
+            class="mt-5 w-full flex justify-evenly bg-white p-5 gap-36 cursor-pointer max-[600px]:w-full sm:mt-14 sm:gap-10 sm:bg-transparent sm:justify-between md:mt-6 md:gap-32 lg:justify-between lg:-mt-12"
           >
             <button type="button" class="previous capitalize text-gray-400">
               go back
@@ -296,13 +326,41 @@
           </div>
         </div>
 
-        <div id="fourth-part" data-step class="hidden">
+        <div
+          id="fourth-part"
+          data-step
+          class="hidden bg-white px-4 mx-4 py-5 max-[320px]:px-2 min-[600px]:mx-28 min-[600px]:-mt-10 sm:mx-32 md:px-10 md:mx-44 md:-mt-12 lg:max-w-[60%] lg:h-full"
+        >
           <div id="title">
             <h1>finishing up</h1>
             <p>double check everythig looks ok before confirming</p>
           </div>
           <div id="holder">
-            <div id="one"></div>
+            <div id="one">
+              <p>arcade (monthly)</p>
+              <!-- <span>change</span> -->
+              <span>$9/mo</span>
+              <div></div>
+            </div>
+
+            <div id="one">
+              <p>online services</p>
+              <span>$9/mo</span>
+            </div>
+            <div
+              id="buttons"
+              class="mt-5 w-full flex justify-evenly bg-white p-5 gap-36 cursor-pointer max-[600px]:w-full sm:mt-14 sm:gap-10 sm:bg-transparent sm:justify-between md:mt-6 md:gap-32 lg:justify-between lg:-mt-12"
+            >
+              <button type="button" class="previous capitalize text-gray-400">
+                go back
+              </button>
+              <button
+                type="button"
+                class="next capitalize bg-blue-950 text-white p-2 rounded-md"
+              >
+                next step
+              </button>
+            </div>
           </div>
         </div>
       </div>
