@@ -165,49 +165,33 @@
             <div id="cards" class="py-8 flex flex-col lg:flex-row gap-5">
               <div
                 id="card"
-                class="flex gap-3 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-col lg:py-2 lg:px-5"
+                class="flex gap-4 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-col lg:w-36 lg:py-5 lg:border-2 lg:border-gray-200"
               >
                 <img
                   src="images/icon-arcade.svg"
                   alt="1-icon"
-                  class="size-10"
+                  class="lg:size-8"
                 />
-                <div class="mt-3" id="description">
-                  <h2 class="capitalize text-blue-900 font-semibold text-base">
-                    arcade
-                  </h2>
-                  <p class="text-gray-400">$9/mo</p>
-                </div>
+                <div class="mt-2" id="description"></div>
               </div>
 
               <div
                 id="card"
-                class="flex gap-3 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-col lg:py-2 lg:px-5"
+                class="flex gap-3 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-col lg:w-36 lg:py-5 lg:border-2 lg:border-gray-200"
               >
                 <img
                   src="images/icon-advanced.svg"
                   alt="2-icon"
-                  class="size-10"
+                  class="lg:size-8"
                 />
-                <div class="mt-3" id="description">
-                  <h2 class="capitalize text-blue-900 font-semibold text-base">
-                    advanced
-                  </h2>
-                  <p class="text-gray-400">$12/mo</p>
-                </div>
+                <div class="mt-2" id="description"></div>
               </div>
-
               <div
                 id="card"
-                class="flex gap-3 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-col lg:py-2 lg:px-5"
+                class="relative flex gap-3 border-2 border-gray-200 px-4 py-2 mb-10 rounded-lg transition-all delay-100 duration-150 hover:border-blue-500 cursor-pointer lg:flex-col lg:w-36 lg:py-5 lg:border-2 lg:border-gray-200"
               >
-                <img src="images/icon-pro.svg" alt="3-icon" class="size-10" />
-                <div class="mt-3" id="description">
-                  <h2 class="capitalize text-blue-900 font-semibold text-base">
-                    pro
-                  </h2>
-                  <p class="text-gray-400">$15/mo</p>
-                </div>
+                <img src="images/icon-pro.svg" alt="3-icon" class="lg:size-8" />
+                <div class="mt-2" id="description"></div>
               </div>
             </div>
             <div class="bg-blue-50">
@@ -231,7 +215,7 @@
               </div>
             </div>
           </div>
-          <div
+          <!-- <div
             id="buttons "
             class="flex justify-evenly bg-white p-5 gap-36 cursor-pointer max-[600px]:w-full sm:mt-14 sm:gap-40 sm:bg-transparent sm:justify-around sm:ml-32 md:mt-24 md:gap-32 lg:justify-end lg:-mt-10"
           >
@@ -244,7 +228,7 @@
             >
               next step
             </button>
-          </div>
+          </div> -->
         </div>
 
         <div
@@ -274,11 +258,18 @@
             >
               <div class="flex gap-2">
                 <input type="checkbox" name="" id="service" class="" />
-                <label for="service" class="text-blue-900 font-bold text-lg"
-                  >online service</label
-                >
+                <label
+                  for="service"
+                  class="text-blue-900 font-bold text-lg"
+                ></label>
               </div>
-              <div id="yearly" class="flex gap-4 justify-between mx-px"></div>
+              <div
+                id="yearly"
+                class="flex gap-4 justify-between mx-px text-gray-400"
+              >
+                Access to multiplayer ganes
+                <span class="text-indigo-700 text-base"></span>
+              </div>
             </div>
 
             <div
@@ -287,11 +278,18 @@
             >
               <div class="flex gap-2">
                 <input type="checkbox" name="" id="storage" class="" />
-                <label for="storage" class="text-blue-900 font-bold text-lg"
-                  >larger storage</label
-                >
+                <label
+                  for="storage"
+                  class="text-blue-900 font-bold text-lg"
+                ></label>
               </div>
-              <div id="yearly" class="flex gap-4 justify-between mx-px"></div>
+              <div
+                id="yearly"
+                class="flex gap-4 justify-between mx-px text-gray-400"
+              >
+                Extra 1TB of cloud save
+                <span class="text-indigo-700 text-base"></span>
+              </div>
             </div>
 
             <div
@@ -300,17 +298,19 @@
             >
               <div class="flex gap-2">
                 <input type="checkbox" name="" id="profile" class="" />
-                <label for="profile" class="text-blue-900 font-bold text-lg"
-                  >customizable profile
+                <label for="profile" class="text-blue-900 font-bold text-lg">
                 </label>
               </div>
               <div
                 id="yearly"
-                class="flex gap-4 justify-between mx-px last:-mr-2"
-              ></div>
+                class="flex gap-4 justify-between mx-px text-gray-400 last:-mr-2"
+              >
+                Custom theme on your profile
+                <span class="text-indigo-700 text-base"></span>
+              </div>
             </div>
           </div>
-          <div
+          <!-- <div
             id="buttons"
             class="mt-5 w-full flex justify-evenly bg-white p-5 gap-36 cursor-pointer max-[600px]:w-full sm:mt-14 sm:gap-10 sm:bg-transparent sm:justify-between md:mt-6 md:gap-32 lg:justify-between lg:-mt-12"
           >
@@ -323,45 +323,49 @@
             >
               next step
             </button>
-          </div>
+          </div> -->
         </div>
 
         <div
           id="fourth-part"
           data-step
-          class="hidden bg-white px-4 mx-4 py-5 max-[320px]:px-2 min-[600px]:mx-28 min-[600px]:-mt-10 sm:mx-32 md:px-10 md:mx-44 md:-mt-12 lg:max-w-[60%] lg:h-full"
+          class="hidden bg-white px-4 mx-4 py-5 max-[320px]:px-2 min-[600px]:mx-28 min-[600px]:-mt-10 sm:mx-32 md:px-10 md:mx-44 md:-mt-12 lg:max-w-[70%] lg:relative lg:left-[14.4rem] lg:mt-1 lg:py-12"
         >
-          <div id="title">
-            <h1>finishing up</h1>
-            <p>double check everythig looks ok before confirming</p>
-          </div>
-          <div id="holder">
-            <div id="one">
-              <p>arcade (monthly)</p>
-              <!-- <span>change</span> -->
-              <span>$9/mo</span>
-              <div></div>
-            </div>
-
-            <div id="one">
-              <p>online services</p>
-              <span>$9/mo</span>
-            </div>
-            <div
-              id="buttons"
-              class="mt-5 w-full flex justify-evenly bg-white p-5 gap-36 cursor-pointer max-[600px]:w-full sm:mt-14 sm:gap-10 sm:bg-transparent sm:justify-between md:mt-6 md:gap-32 lg:justify-between lg:-mt-12"
+          <div id="title" class="-mt-4">
+            <h1
+              class="text-gray-900 text-xl first-letter:capitalize font-extrabold sm:text-2xl leading-2"
             >
-              <button type="button" class="previous capitalize text-gray-400">
-                go back
-              </button>
-              <button
-                type="button"
-                class="next capitalize bg-blue-950 text-white p-2 rounded-md"
-              >
-                next step
-              </button>
-            </div>
+              finishing up
+            </h1>
+            <p
+              class="text-base text-gray-400 first-letter:capitalize sm:text-xl"
+            >
+              double check everythig looks ok before confirming
+            </p>
           </div>
+          <div id="holder" class="mt-5"></div>
+          <div
+            class="flex justify-between space-y-1 mb-2 text-gray-400 text-base lg:text-xl"
+          >
+            <p id="total">Total</p>
+            <span
+              class="total-amount text-indigo-600 mr-5 font-bold text-lg"
+            ></span>
+          </div>
+        </div>
+        <div
+          id="buttons"
+          class="mt-20 w-full flex justify-evenly bg-white p-5 gap-36 cursor-pointer max-[320px]:p-2 max-[600px]:w-full sm:mt-14 sm:gap-10 sm:bg-transparent sm: md:mt-6 md:gap-28 lg:gap-1 lg:ml-56"
+        >
+          <button type="button" class="previous capitalize text-gray-400">
+            go back
+          </button>
+          <button
+            type="button"
+            class="next capitalize bg-blue-950 text-white p-2 rounded-md"
+          >
+            next step
+          </button>
         </div>
       </div>
     </div>
