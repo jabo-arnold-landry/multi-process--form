@@ -31,6 +31,7 @@
             class="flex absolute top-8 left-28 gap-6 text-white max-[320px]:left-20 min-[600px]:left-44 min-[600px]:gap-16 min-[600px]:top-16 sm:left-[33%] sm:top-32 sm:gap-16 lg:flex-col lg:top-20 lg:left-56 lg:gap-2"
           >
             <div
+              id="bars"
               class="text-base border-2 px-1 rounded-full size-8 text-center cursor-pointer sm:size-10 sm:text-lg sm-:py-1 lg:size-6 lg:text-sm"
             >
               1
@@ -43,6 +44,7 @@
             </div>
 
             <div
+              id="bars"
               class="text-base border-2 px-1 rounded-full size-8 text-center cursor-pointer sm:size-10 sm:text-lg sm-:py-1 lg:size-6 lg:text-sm"
             >
               2
@@ -54,6 +56,7 @@
               >
             </div>
             <div
+              id="bars"
               class="text-base border-2 px-1 rounded-full size-8 text-center cursor-pointer sm:size-10 sm:text-lg sm-:py-1 lg:size-6 lg:text-sm"
             >
               3
@@ -65,6 +68,7 @@
               >
             </div>
             <div
+              id="bars"
               class="text-base border-2 px-1 rounded-full size-8 text-center cursor-pointer sm:size-10 sm:text-lg sm-:py-1 lg:size-6 lg:text-sm"
             >
               4
@@ -333,6 +337,28 @@
 
         <div id="fourth-part" data-step class="hidden">
           <div
+            class="hidden bg-white py-6 mx-8 px-4 rounded-md shadow-xl max-[320px]:mx-2 min-[600px]:mx-24 min-[600px]:-mt-10 sm:px-2 sm:mx-36 md:px-2 lg:pb-16 lg:mt-2 xl:mt-1 lg:relative lg:left-[36%]"
+            id="image"
+          >
+            <img
+              src="images/icon-thank-you.svg"
+              alt="nothing here"
+              class="mx-32 mt-10 size-10 min-[600px]:size-32 min-[600px]:ml-40 sm:size-36 sm:ml-28 md:size-40 md:ml-44 lg:size-40 lg:ml-[10rem]"
+            />
+            <div class="text-center mt-4 text-gray-400">
+              <h1 class="text-black font-bold text-2xl leading-5">
+                Thank you!
+              </h1>
+              <p>
+                thanks for confirming your subscription!<br />
+                we hope you have fun using our <br />
+                platform. if you ever need support, <br />
+                please fell free to email us at <br />support@loremgaming.com.
+              </p>
+            </div>
+          </div>
+          <div
+            id="semi-four"
             class="bg-white px-6 py-5 mx-2 rounded-md shadow-lg min-[600px]:mx-32 min-[600px]:-mt-10 sm:mx-24 sm:-mt-2 md:mx-40 md:px-10 md:py-11 lg:shadow-none lg:mx-[25.6rem] lg:min-w-[45%] lg:py-10 xl:py-12 xl:mt-px"
           >
             <div id="title" class="-mt-4">
@@ -358,23 +384,26 @@
               class="flex justify-between space-y-1 mb-2 text-gray-400 text-base lg:text-xl"
             >
               <p id="total">Total</p>
-              <span
-                class="total-amount text-indigo-600 mr-5 font-bold text-lg"
-              ></span>
+              <div
+                class="total-amount text-indigo-600 mr-5 font-bold text-lg flex"
+              >
+                <p>+$</p>
+                <span id="amount"></span>
+              </div>
             </div>
           </div>
           <div
-            id="buttons "
+            id="buttons"
             class="flex justify-evenly bg-white p-5 gap-32 mt-8 cursor-pointer min-[600px]:max-w-[60%] min-[600px]:ml-28 sm:max-w-[70%] sm:ml-24 md:gap-48 md:mx-32 lg:bg-transparent lg:gap-x-4 lg:ml-56"
           >
             <button type="button" class="previous capitalize text-gray-400">
               go back
             </button>
             <button
-              type="button"
-              class="next capitalize bg-blue-950 text-white p-2 rounded-md"
+              type="submit"
+              class="confirm capitalize bg-blue-950 text-white p-2 rounded-md"
             >
-              next step
+              confirm
             </button>
           </div>
         </div>

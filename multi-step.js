@@ -1,11 +1,20 @@
 const stepsCOntainer = document.querySelector("#steps");
 const parts = [...stepsCOntainer.querySelectorAll("[data-step")];
 const buttons = document.querySelectorAll("button");
+const progress = document.querySelector(".progress-bar");
+const progressBar = [...progress.querySelectorAll("#bars")];
 
 let stepNumber = parts.findIndex((part) => part.classList.contains("block"));
 if (stepNumber < 0) {
-  stepNumber = 1;
+  stepNumber = 0;
   parts[stepNumber].classList.toggle("hidden");
+  progressBar[stepNumber].classList.add(
+    "bg-gradient-to-tr",
+    "from-sky-200",
+    "to",
+    "bg-yellow-100",
+    "text-black"
+  );
 }
 
 buttons.forEach((btn) => {
@@ -17,18 +26,38 @@ buttons.forEach((btn) => {
       if (stepNumber === 2 && !boxes.some((box) => box.checked)) {
         return alert("please select an option(s)");
       }
+
       stepNumber += 1;
     } else if (e.target.classList.contains("previous")) {
       stepNumber -= 1;
     }
+
     addOrRemoveSteps();
   });
 });
+const confirm = document.querySelector('button[type="submit"]');
+
+confirm.addEventListener("pointerdown", (e) => {
+  const fourth = document.querySelector("#fourth-part");
+  fourth.querySelector("#semi-four").classList.add("hidden");
+  fourth.querySelector("#buttons").classList.add("hidden");
+  fourth.querySelector("#image").classList.remove("hidden");
+});
+
 function addOrRemoveSteps() {
   parts.forEach((step, index) => {
     step.classList.toggle("hidden", index !== stepNumber);
   });
+
+  progressBar.forEach((bar, index) => {
+    bar.classList.toggle("bg-gradient-to-tr", index === stepNumber);
+    bar.classList.toggle("from-sky-200", index === stepNumber);
+    bar.classList.toggle("to", index === stepNumber);
+    bar.classList.toggle("bg-yellow-100", index === stepNumber);
+    bar.classList.toggle("text-black", index === stepNumber);
+  });
 }
+
 const cardsContainer = document.querySelector("#cards");
 const monthly = [
   {
@@ -80,7 +109,7 @@ const yeary = [
 
 const changeBtn = document.querySelector("#change");
 const totalLabel = document.querySelector("#total");
-const totalAmount = document.querySelector(".total-amount");
+const totalAmount = document.querySelector("#amount");
 const switctBtn = document.querySelector(".bg-blue-50");
 const checkbox = document.querySelector("#checkbox");
 const boxes = [...checkbox.querySelectorAll("input")];
@@ -99,11 +128,13 @@ function displayLabeleAndSpans(times) {
     }`;
   });
 }
+
 displayLabeleAndSpans(1);
 const holder = document.querySelector("#holder");
 const holderDiv = document.querySelector("#semi-holder");
 const semiHolder = document.querySelector("#semi-holder");
-console.log(semiHolder);
+let headersFinder;
+let contentsTFinder;
 function callOnHolder(times) {
   cards.forEach((card, index) => {
     card.addEventListener(
@@ -113,15 +144,18 @@ function callOnHolder(times) {
         const findElement = monthly.find((element) => element.id === index);
         const { name, price } = findElement;
         holder.innerHTML = "";
-        holder.innerHTML = `<div id="one" class=" flex flex-col gap-2 p-5 flex-wrap rounded-md">
-      <div class="relative flex justify-between space-y-2 mb-2 text-gray-400 text-base lg:text-xl>
+        holder.innerHTML = `<div
+                  id="one"
+                  class="flex flex-col gap-2 p-5 flex-wrap rounded-md"
+                >
+                  <div class="relative flex justify-between space-y-2 mb-2 text-gray-400 text-base lg:text-xl">
        <p class="text-indigo-950 text-lg capitalize font-bold">
                   ${name}(${times <= 1 ? "Monthly" : "Yearly"})
                 </p>
                 <span
-                  class="absolute top-4 underline cursor-pointer select-none"
-                  id="change"
-                  >change</span
+                    class="absolute top-4 underline cursor-pointer select-none"
+                    id="change"
+                    >change</span
                 >
                 <span class="amount text-indigo-950 font-bold">+$${
                   price * times
@@ -130,44 +164,60 @@ function callOnHolder(times) {
               <div class="border-b-2 border-gray-200"></div>
             <div class="flex justify-between space-y-3 mb-2 text-gray-400 text-base lg:text-xl"></div> 
         </div>`;
+        headersFinder = monthly.find((ele) => ele.name === name);
+        totalAmount.textContent = headersFinder.price * times;
       },
       { once: true }
     );
   });
 }
 callOnHolder(1);
-let holders = [];
 
-function labelHolder(times) {
+let holders = [];
+function labelHolder() {
   let foundLabel = "";
   boxes.forEach((box, index) => {
     index += 1;
+    let sum;
     box.addEventListener("change", (e) => {
       if (box.checked) {
         foundLabel = yeary.find((box) => box.id === index);
         holders.push(foundLabel);
         const { label, price } = foundLabel;
         semiHolder.innerHTML += `
-        <div class="flex justify-around gap-28 space-y-3  text-gray-400 text-base lg:text-xl" id ="${index}">
+        <div class="flex justify-center gap-32 mb-3 text-gray-400 text-base sm:gap-52 md:gap-44 lg:justify-between lg:text-xl" id="label">
         <p>${label}</p>
-        <span class="amount text-indigo-950">+$${
+        <span class="${label} text-indigo-950">+$${
           toggler.classList.contains("ml-[1.4rem]") ? price * 10 : price * 1
         }/${toggler.classList.contains("ml-[1.4rem]") ? "yr" : "mo"}</span>
-        </div>`;
+        </div>
+        <div class="border-b-2 border-gray-200"></div>`;
+        sum = price + 0;
+        console.log(sum + parseInt(totalAmount.textContent));
+        // total = parseFloat(totalAmount.textContent) + sum;
+        // totalAmount.textContent = "";
+        totalAmount.textContent = sum + parseFloat(totalAmount.textContent);
       } else {
-        const added = semiHolder.querySelector(`div[id="${index}"]`);
+        const added = semiHolder.querySelector("#label");
         added.remove();
+
+        const removed = added.querySelector;
+        console.log(removed);
+        // console.log(
+        //   (totalAmount.textContent =
+        //     parseInt(totalAmount.textContent) - removed)
+        // );
       }
     });
   });
 }
 
-labelHolder(1);
+labelHolder();
+
 const toggler = switctBtn.querySelector("#toggler");
 switctBtn.addEventListener("click", (e) => {
   if (e.target.classList.contains("switch")) {
     toggler.classList.toggle("ml-[1.4rem]");
-    semiHolder.innerHTML = "";
     holderDiv.innerHTML = "";
     holder.innerHTML = "";
     cards.forEach((card) => {
@@ -184,12 +234,12 @@ switctBtn.addEventListener("click", (e) => {
     });
   }
   if (toggler.classList.contains("ml-[1.4rem]")) {
-    // console.log(holders);
     boxes.forEach((box) => (box.checked = false));
     callOnHolder(10);
+    holders = [];
+    totalAmount.textContent = "";
   } else {
     boxes.forEach((box) => (box.checked = false));
     callOnHolder(1);
-    // labelHolder(1);
   }
 });
