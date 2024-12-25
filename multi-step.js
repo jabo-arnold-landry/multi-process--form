@@ -202,7 +202,7 @@ function labelHolder() {
         added.remove();
 
         const removed = added.querySelector;
-        console.log(removed);
+        // console.log(removed);
         // console.log(
         //   (totalAmount.textContent =
         //     parseInt(totalAmount.textContent) - removed)
