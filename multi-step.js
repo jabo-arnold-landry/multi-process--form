@@ -17,6 +17,7 @@ const cards = [...document.querySelectorAll("#card")];
 const toggler = switctBtn.querySelector("#toggler");
 const errors = [...document.querySelectorAll("#errors")];
 const inputs = [...form.querySelectorAll("input")];
+const mounts = document.querySelector("#mounts");
 let stepNumber = parts.findIndex((part) => part.classList.contains("block"));
 if (stepNumber < 0) {
   stepNumber = 0;
@@ -42,18 +43,18 @@ buttons.forEach((btn) => {
         if (!nameInput || !emailInput || !phoneInput) {
           errors.map((error, index) => {
             error.textContent = "This field is required";
-            inputs[index].classList.toggle("border-red-200");
+            inputs[index].classList.toggle("border-red-300");
           });
           return;
         }
         if (!emailRegex.test(emailInput)) {
           errors[1].textContent = "The email is incorrect";
-          emailField.classList.toggle("border-red-200");
+          emailField.classList.toggle("border-red-300");
           return false;
         }
         if (!/^(\+25)?(079|078|073|072)\d{7}$/gim.test(phoneInput)) {
           errors[2].textContent = "The Phone number is incorrect";
-          phoneField.classList.toggle("border-red-200");
+          phoneField.classList.toggle("border-red-300");
           return false;
         }
       }
@@ -75,17 +76,17 @@ buttons.forEach((btn) => {
 
 nameField.addEventListener("input", () => {
   errors[0].textContent = "";
-  inputs[0].classList.remove("border-red-200");
+  inputs[0].classList.remove("border-red-300");
 });
 
 emailField.addEventListener("input", () => {
   errors[1].textContent = "";
-  inputs[1].classList.remove("border-red-200");
+  inputs[1].classList.remove("border-red-300");
 });
 
 phoneField.addEventListener("input", () => {
   errors[2].textContent = "";
-  inputs[2].classList.remove("border-red-200");
+  inputs[2].classList.remove("border-red-300");
 });
 
 confirm.addEventListener("pointerdown", (e) => {
@@ -196,11 +197,11 @@ function callOnHolder(times) {
                   ${name}(${times <= 1 ? "Monthly" : "Yearly"})
                 </p>
                 <span
-                    class="absolute top-4 underline cursor-pointer select-none"
+                    class="change absolute top-4 underline cursor-pointer select-none"
                     id="change"
                     >change</span
                 >
-                <span class="amount text-indigo-950 font-bold">+$${
+                <span class="amount text-indigo-950 font-bold lg:mr-3">+$${
                   price * times
                 }/${times <= 1 ? "mo" : "yr"}</span>
                 </div>
@@ -210,36 +211,42 @@ function callOnHolder(times) {
         headersFinder = monthly.find((ele) => ele.name === name);
         totalAmount.textContent = headersFinder.price * times;
 
-        const changeBtn = document.querySelector("#change");
-        changeBtn.addEventListener("click", () => {
+        const changeBtn = document.querySelector("#one");
+        changeBtn.addEventListener("click", (e) => {
           let numberTransformation = "";
           const prices = [...holderDiv.querySelectorAll("#price")];
-          const pricesLabel = [
-            ...holderDiv.querySelectorAll(".text-indigo-950"),
-          ];
-          if (toggler.classList.contains("ml-[1.4rem]")) {
-            holder.querySelector(".amount").textContent = `+$${price * 1}/${
-              price <= 1 ? "mo" : "yr"
-            }`;
-            holder.querySelector("p").textContent = ` ${name}(${
-              price <= 1 ? "Monthly" : "Yearly"
-            })`;
-            // prices.forEach((price, index) => {
-            //   numberTransformation = Number(price.textContent);
-            //   price.textContent = numberTransformation * 1;
-            //   pricesLabel[index].textContent = "+$/yr";
-            // });
-          } else {
+          const pricesLabel = [...holderDiv.querySelectorAll("#description")];
+          toggler.classList.toggle("ml-[1.4rem]");
+          if (e.target.classList.contains("change")) {
             holder.querySelector(".amount").textContent = `+$${price * 10}/${
               price <= 1 ? "mo" : "yr"
             }`;
             holder.querySelector("p").textContent = ` ${name}(${
               price <= 1 ? "Monthly" : "Yearly"
             })`;
-            // prices.forEach((price) => {
-            //   numberTransformation = Number(price.textContent);
-            //   price.textContent = numberTransformation * 10;
-            // });
+            prices.forEach((price, index) => {
+              pricesLabel[index].textContent = `/yr`;
+              numberTransformation = Number(price.textContent);
+              price.textContent = numberTransformation * 10;
+            });
+            numberTransformation = Number(totalAmount.textContent);
+            totalAmount.textContent = numberTransformation * 10;
+            mounts.textContent = `/yr`;
+          } else {
+            holder.querySelector(".amount").textContent = `+$${price * 1}/${
+              price <= 1 ? "mo" : "yr"
+            }`;
+            holder.querySelector("p").textContent = ` ${name}(${
+              price <= 1 ? "Monthly" : "Yearly"
+            })`;
+            prices.forEach((price) => {
+              pricesLabel[index].textContent = "/mo";
+              numberTransformation = Number(price.textContent);
+              price.textContent = numberTransformation * 1;
+            });
+            numberTransformation = Number(totalAmount.textContent);
+            totalAmount.textContent = numberTransformation * 1;
+            mounts.textContent = `/mo`;
           }
         });
       },
@@ -264,18 +271,18 @@ function labelHolder() {
         holders.push(foundLabel);
         const { label, price } = foundLabel;
         semiHolder.innerHTML += `
-        <div class="flex justify-center gap-32 mb-3 text-gray-400 text-base sm:gap-52 md:gap-44 lg:justify-between lg:text-xl" id="label">
+        <div class="flex justify-center gap-32 mb-3 text-gray-400 text-base sm:gap-52 md:gap-44 lg:justify-around lg:text-xl" id="label">
         <p>${label}</p>
-        <span class="${label} text-indigo-950 flex">+$<p  id="price">${price}</p>/${
+        <div class="${label} text-indigo-950 flex">+$<p  id="price">${price}</p>
+        <span id= 'description'> /${
           toggler.classList.contains("ml-[1.4rem]") ? "yr" : "mo"
         }</span>
         </div>
+        </div>
         <div class="border-b-2 border-gray-200"></div>`;
         sum = price + 0;
-        totalAmount.textContent = (
-          sum + parseFloat(totalAmount.textContent)
-        ).toString();
-        totalAmount.textContent += `/${
+        totalAmount.textContent = sum + parseInt(totalAmount.textContent);
+        mounts.textContent = `/${
           toggler.classList.contains("ml-[1.4rem]") ? "yr" : "mo"
         }`;
       } else {
