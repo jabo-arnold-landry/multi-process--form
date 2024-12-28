@@ -16,7 +16,7 @@ const boxes = [...checkbox.querySelectorAll("input")];
 const cards = [...document.querySelectorAll("#card")];
 const toggler = switctBtn.querySelector("#toggler");
 const errors = [...document.querySelectorAll("#errors")];
-
+const inputs = [...form.querySelectorAll("input")];
 let stepNumber = parts.findIndex((part) => part.classList.contains("block"));
 if (stepNumber < 0) {
   stepNumber = 0;
@@ -40,17 +40,20 @@ buttons.forEach((btn) => {
         const emailInput = emailField.value;
         const phoneInput = phoneField.value;
         if (!nameInput || !emailInput || !phoneInput) {
-          errors.map((error) => {
+          errors.map((error, index) => {
             error.textContent = "This field is required";
+            inputs[index].classList.toggle("border-red-200");
           });
           return;
         }
         if (!emailRegex.test(emailInput)) {
           errors[1].textContent = "The email is incorrect";
+          emailField.classList.toggle("border-red-200");
           return false;
         }
         if (!/^(\+25)?(079|078|073|072)\d{7}$/gim.test(phoneInput)) {
           errors[2].textContent = "The Phone number is incorrect";
+          phoneField.classList.toggle("border-red-200");
           return false;
         }
       }
@@ -72,14 +75,17 @@ buttons.forEach((btn) => {
 
 nameField.addEventListener("input", () => {
   errors[0].textContent = "";
+  inputs[0].classList.remove("border-red-200");
 });
 
 emailField.addEventListener("input", () => {
   errors[1].textContent = "";
+  inputs[1].classList.remove("border-red-200");
 });
 
 phoneField.addEventListener("input", () => {
   errors[2].textContent = "";
+  inputs[2].classList.remove("border-red-200");
 });
 
 confirm.addEventListener("pointerdown", (e) => {
