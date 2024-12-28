@@ -3,6 +3,19 @@ const parts = [...stepsCOntainer.querySelectorAll("[data-step")];
 const buttons = document.querySelectorAll("button");
 const progress = document.querySelector(".progress-bar");
 const progressBar = [...progress.querySelectorAll("#bars")];
+const form = document.querySelector("form");
+const nameField = document.querySelector('input[type="text"]');
+const emailField = document.querySelector("#email");
+const phoneField = document.querySelector("#phone-number");
+const confirm = document.querySelector('button[type="submit"]');
+const totalLabel = document.querySelector("#total-text");
+const totalAmount = document.querySelector("#amount");
+const switctBtn = document.querySelector(".bg-blue-50");
+const checkbox = document.querySelector("#checkbox");
+const boxes = [...checkbox.querySelectorAll("input")];
+const cards = [...document.querySelectorAll("#card")];
+const toggler = switctBtn.querySelector("#toggler");
+const errors = [...document.querySelectorAll("#errors")];
 
 let stepNumber = parts.findIndex((part) => part.classList.contains("block"));
 if (stepNumber < 0) {
@@ -20,6 +33,27 @@ if (stepNumber < 0) {
 buttons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     if (e.target.classList.contains("next")) {
+      e.preventDefault();
+      if (stepNumber === 0 && e.target.classList.contains("next")) {
+        const emailRegex = /^[\w\d]+@\w{5}\.\w{2,3}$/gim;
+        const nameInput = nameField.value;
+        const emailInput = emailField.value;
+        const phoneInput = phoneField.value;
+        if (!nameInput || !emailInput || !phoneInput) {
+          errors.map((error) => {
+            error.textContent = "This field is required";
+          });
+          return;
+        }
+        if (!emailRegex.test(emailInput)) {
+          errors[1].textContent = "The email is incorrect";
+          return false;
+        }
+        if (!/^(\+25)?(079|078|073|072)\d{7}$/gim.test(phoneInput)) {
+          errors[2].textContent = "The Phone number is incorrect";
+          return false;
+        }
+      }
       if (stepNumber === 1 && holder.innerHTML === "") {
         return alert("select a plan please");
       }
@@ -35,7 +69,18 @@ buttons.forEach((btn) => {
     addOrRemoveSteps();
   });
 });
-const confirm = document.querySelector('button[type="submit"]');
+
+nameField.addEventListener("input", () => {
+  errors[0].textContent = "";
+});
+
+emailField.addEventListener("input", () => {
+  errors[1].textContent = "";
+});
+
+phoneField.addEventListener("input", () => {
+  errors[2].textContent = "";
+});
 
 confirm.addEventListener("pointerdown", (e) => {
   const fourth = document.querySelector("#fourth-part");
@@ -107,14 +152,6 @@ const yeary = [
   },
 ];
 
-const changeBtn = document.querySelector("#change");
-const totalLabel = document.querySelector("#total");
-const totalAmount = document.querySelector("#amount");
-const switctBtn = document.querySelector(".bg-blue-50");
-const checkbox = document.querySelector("#checkbox");
-const boxes = [...checkbox.querySelectorAll("input")];
-const cards = [...document.querySelectorAll("#card")];
-
 const checkBoxLabel = document.querySelector("#third-part");
 const labelElements = checkBoxLabel.querySelectorAll("label");
 
@@ -166,6 +203,39 @@ function callOnHolder(times) {
         </div>`;
         headersFinder = monthly.find((ele) => ele.name === name);
         totalAmount.textContent = headersFinder.price * times;
+
+        const changeBtn = document.querySelector("#change");
+        changeBtn.addEventListener("click", () => {
+          let numberTransformation = "";
+          const prices = [...holderDiv.querySelectorAll("#price")];
+          const pricesLabel = [
+            ...holderDiv.querySelectorAll(".text-indigo-950"),
+          ];
+          if (toggler.classList.contains("ml-[1.4rem]")) {
+            holder.querySelector(".amount").textContent = `+$${price * 1}/${
+              price <= 1 ? "mo" : "yr"
+            }`;
+            holder.querySelector("p").textContent = ` ${name}(${
+              price <= 1 ? "Monthly" : "Yearly"
+            })`;
+            // prices.forEach((price, index) => {
+            //   numberTransformation = Number(price.textContent);
+            //   price.textContent = numberTransformation * 1;
+            //   pricesLabel[index].textContent = "+$/yr";
+            // });
+          } else {
+            holder.querySelector(".amount").textContent = `+$${price * 10}/${
+              price <= 1 ? "mo" : "yr"
+            }`;
+            holder.querySelector("p").textContent = ` ${name}(${
+              price <= 1 ? "Monthly" : "Yearly"
+            })`;
+            // prices.forEach((price) => {
+            //   numberTransformation = Number(price.textContent);
+            //   price.textContent = numberTransformation * 10;
+            // });
+          }
+        });
       },
       { once: true }
     );
@@ -182,31 +252,29 @@ function labelHolder() {
     box.addEventListener("change", (e) => {
       if (box.checked) {
         foundLabel = yeary.find((box) => box.id === index);
+        foundLabel.price = toggler.classList.contains("ml-[1.4rem]")
+          ? foundLabel.price * 10
+          : foundLabel.price * 1;
         holders.push(foundLabel);
         const { label, price } = foundLabel;
         semiHolder.innerHTML += `
         <div class="flex justify-center gap-32 mb-3 text-gray-400 text-base sm:gap-52 md:gap-44 lg:justify-between lg:text-xl" id="label">
         <p>${label}</p>
-        <span class="${label} text-indigo-950">+$${
-          toggler.classList.contains("ml-[1.4rem]") ? price * 10 : price * 1
-        }/${toggler.classList.contains("ml-[1.4rem]") ? "yr" : "mo"}</span>
+        <span class="${label} text-indigo-950 flex">+$<p  id="price">${price}</p>/${
+          toggler.classList.contains("ml-[1.4rem]") ? "yr" : "mo"
+        }</span>
         </div>
         <div class="border-b-2 border-gray-200"></div>`;
         sum = price + 0;
-        console.log(sum + parseInt(totalAmount.textContent));
-        // total = parseFloat(totalAmount.textContent) + sum;
-        // totalAmount.textContent = "";
-        totalAmount.textContent = sum + parseFloat(totalAmount.textContent);
+        totalAmount.textContent = (
+          sum + parseFloat(totalAmount.textContent)
+        ).toString();
+        totalAmount.textContent += `/${
+          toggler.classList.contains("ml-[1.4rem]") ? "yr" : "mo"
+        }`;
       } else {
         const added = semiHolder.querySelector("#label");
         added.remove();
-
-        const removed = added.querySelector;
-        // console.log(removed);
-        // console.log(
-        //   (totalAmount.textContent =
-        //     parseInt(totalAmount.textContent) - removed)
-        // );
       }
     });
   });
@@ -214,7 +282,6 @@ function labelHolder() {
 
 labelHolder();
 
-const toggler = switctBtn.querySelector("#toggler");
 switctBtn.addEventListener("click", (e) => {
   if (e.target.classList.contains("switch")) {
     toggler.classList.toggle("ml-[1.4rem]");

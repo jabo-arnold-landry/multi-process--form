@@ -88,66 +88,90 @@
       >
         <!--form-->
         <div id="form" data-step class="hidden">
-          <form
-            action=""
-            class="bg-white px-6 py-5 mx-2 rounded-md shadow-lg min-[600px]:mx-32 min-[600px]:-mt-10 sm:mx-24 sm:-mt-2 md:mx-40 md:px-10 md:py-11 lg:shadow-none lg:mx-[25.6rem] lg:min-w-[45%] lg:py-10 xl:py-12 xl:mt-px"
-          >
-            <h1
-              class="text-gray-900 text-xl first-letter:capitalize font-extrabold sm:text-2xl leading-2"
+          <form action="">
+            <div
+              class="bg-white px-6 py-5 mx-2 rounded-md shadow-lg min-[600px]:mx-32 min-[600px]:-mt-10 sm:mx-24 sm:-mt-2 md:mx-40 md:px-10 md:py-11 lg:shadow-none lg:mx-[25.6rem] lg:min-w-[45%] lg:py-10 xl:py-12 xl:mt-px"
             >
-              personal info
-            </h1>
-            <p
-              class="text-base text-gray-400 first-letter:capitalize sm:text-xl"
-            >
-              please provide name,email,address and phone number
-            </p>
-            <div id="inputs" class="mt-2 flex flex-col">
-              <div id="inputs-group" class="flex flex-col">
-                <label for="name" class="capitalize font-light sm:text-xl mb-2"
-                  >name</label
-                >
-                <input
-                  type="text"
-                  name=""
-                  id="name"
-                  class="border-2 border-gray-200 rounded-sm p-1 mb-3 outline-none sm:placeholder:text-xl sm:p-3"
-                  placeholder="e.g Jabo Landry"
-                />
-              </div>
-              <div id="inputs-group" class="flex flex-col">
-                <label for="email" class="capitalize font-light sm:text-xl mb-2"
-                  >email</label
-                >
-                <input
-                  type="email"
-                  name=""
-                  id="email"
-                  class="border-2 border-gray-200 rounded-sm p-1 mb-3 outline-none sm:placeholder:text-xl sm:p-3"
-                  placeholder="e.g jabolandry@lorem.com"
-                />
-              </div>
-              <div id="inputs-group" class="flex flex-col">
-                <label
-                  for="phone number"
-                  class="capitalize font-light sm:text-xl mb-2"
-                  >phone number</label
-                >
-                <input
-                  type="text"
-                  name=""
-                  id="phone number"
-                  class="border-2 border-gray-200 rounded-sm p-1 mb-3 outline-none sm:placeholder:text-xl sm:p-3"
-                  placeholder="e.g +250 798 600 102"
-                />
+              <h1
+                class="text-gray-900 text-xl first-letter:capitalize font-extrabold sm:text-2xl leading-2"
+              >
+                personal info
+              </h1>
+              <p
+                class="text-base text-gray-400 first-letter:capitalize sm:text-xl"
+              >
+                please provide name,email,address and phone number
+              </p>
+              <div id="inputs" class="mt-2 flex flex-col">
+                <div id="inputs-group" class="flex flex-col">
+                  <div class="flex justify-between">
+                    <label
+                      for="name"
+                      class="capitalize font-light sm:text-xl mb-2"
+                      >name</label
+                    >
+                    <p
+                      id="errors"
+                      class="text-sm text-red-600 font-light h-2"
+                    ></p>
+                  </div>
+                  <input
+                    type="text"
+                    name=""
+                    id="name"
+                    class="border-2 border-gray-200 rounded-sm p-1 mb-3 outline-none sm:placeholder:text-xl sm:p-3"
+                    placeholder="e.g Jabo Landry"
+                  />
+                </div>
+                <div id="inputs-group" class="flex flex-col">
+                  <div class="flex justify-between">
+                    <label
+                      for="email"
+                      class="capitalize font-light sm:text-xl mb-2"
+                      >email</label
+                    >
+                    <p
+                      id="errors"
+                      class="text-sm text-red-600 font-light h-2"
+                    ></p>
+                  </div>
+                  <input
+                    type="text"
+                    name=""
+                    id="email"
+                    class="border-2 border-gray-200 rounded-sm p-1 mb-3 outline-none sm:placeholder:text-xl sm:p-3"
+                    placeholder="e.g jabolandry@lorem.com"
+                  />
+                </div>
+                <div id="inputs-group" class="flex flex-col">
+                  <div class="flex justify-between">
+                    <label
+                      for="phone number"
+                      class="capitalize font-light sm:text-xl mb-2"
+                      >phone number</label
+                    >
+                    <p
+                      id="errors"
+                      class="text-sm text-red-600 font-light h-2"
+                    ></p>
+                  </div>
+                  <input
+                    type="text"
+                    name=""
+                    id="phone-number"
+                    class="border-2 border-gray-200 rounded-sm p-1 mb-3 outline-none sm:placeholder:text-xl sm:p-3"
+                    placeholder="e.g +250 798 600 102"
+                  />
+                </div>
               </div>
             </div>
+            <button
+              type="button"
+              class="next capitalize bg-blue-950 text-white p-4 rounded-md mt-5 float-end mr-3 min-[600px]:mr-32 sm:mx-24 sm:mb-5 md:mx-40 lg:mx-56 xl:mx-[21rem]"
+            >
+              next step
+            </button>
           </form>
-          <button
-            class="next capitalize bg-blue-950 text-white p-2 rounded-md mt-5 float-end mr-3 min-[600px]:mr-32 sm:mx-24 sm:mb-5 md:mx-40 lg:mx-56 xl:mx-[21rem]"
-          >
-            next step
-          </button>
         </div>
         <!-- select adds-->
         <div id="second-step" data-step class="hidden">
