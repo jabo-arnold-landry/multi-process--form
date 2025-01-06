@@ -205,7 +205,7 @@ function callOnHolder(times) {
                   price * times
                 }/${times <= 1 ? "mo" : "yr"}</span>
                 </div>
-              <div class="border-b-2 border-gray-200"></div>
+              
             <div class="flex justify-between space-y-3 mb-2 text-gray-400 text-base lg:text-xl"></div> 
         </div>`;
         headersFinder = monthly.find((ele) => ele.name === name);
@@ -278,8 +278,7 @@ function labelHolder() {
           toggler.classList.contains("ml-[1.4rem]") ? "yr" : "mo"
         }</span>
         </div>
-        </div>
-        <div class="border-b-2 border-gray-200"></div>`;
+        </div>`;
         sum = price + 0;
         totalAmount.textContent = sum + parseInt(totalAmount.textContent);
         mounts.textContent = `/${
